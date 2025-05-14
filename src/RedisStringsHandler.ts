@@ -113,7 +113,7 @@ export default class RedisStringsHandler {
     try {
       this.client = createClient({
         ...(database !== 0 ? { database } : {}),
-        url: process.env.REDISHOST
+        url: process.env.REDIS_URL? process.env.REDIS_URL : process.env.REDISHOST
           ? `redis://${process.env.REDISHOST}:${process.env.REDISPORT}`
           : 'redis://localhost:6379',
       });
